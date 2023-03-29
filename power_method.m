@@ -1,6 +1,7 @@
-function [x,count,runtime,c1,x1] =power_method(P,d,u) %P是邻接矩阵；a是初始向量; d是阻尼因子; u是停机精度
+function [x,count,runtime,c1,x1] =power_method(P,d,u) 
+%P denotes adjacency matrix锛沘 denotes initial vector; d denotes damping factor; u denotes stopping accuracy
 [n,n]=size(P);
-a=ones(n,1)/n;  %初始化向量x
+a=ones(n,1)/n;  %initialize vector x
 a=a/norm(a);
 z=(d*P'+(1-d)/n*ones(n))*a;
 t=norm(z-a);
@@ -10,7 +11,6 @@ count=0;
 c1(1,1)=0;
 x1=[];
 x1(1,1)=t;
-%count1=[];
 tim=tic;
 
 while t>u
@@ -24,7 +24,4 @@ while t>u
     x1(1,count/n)=t;
 end
 runtime=toc(tim);
-%plot(c1,x1,'r','linewidth',2,'marker','*');
-%xlabel('迭代次数');
-%ylabel('残量');
 end
