@@ -18,7 +18,7 @@ u=0.00001;
 [xx,cc,rr,cc1,rr1]=power_method(P,d,u);
 
 plot(c1,r1,'b',cc1,rr1,'r--','linewidth',2.5);
-xlabel('向量与向量相乘次数');
-ylabel('残量');
-legend('坐标幂法','经典幂法');
+xlabel('number of multiplications with vectors');
+ylabel('residual');
+legend('Coordinate_wise Power Method','Traditional Power Method');
 title('wb-cs-stanford  d=0.95');
